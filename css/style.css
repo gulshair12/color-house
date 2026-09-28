@@ -292,3 +292,65 @@
         font-size: 15px;
     }
 }
+
+/* Custom additions: semibold utility + floating WhatsApp button */
+.fw-semibold {
+    font-weight: 600;
+}
+
+.whatsapp-float {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    font-size: 30px;
+    line-height: 1;
+    color: #FFFFFF;
+    background: #25D366;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
+    z-index: 100;
+    transition: .3s;
+}
+
+.whatsapp-float:hover {
+    color: #FFFFFF;
+    background: #1EBE5D;
+    transform: scale(1.08);
+}
+
+@media (max-width: 767.98px) {
+    .whatsapp-float {
+        right: 18px;
+        bottom: 18px;
+        width: 50px;
+        height: 50px;
+        font-size: 26px;
+    }
+}
+
+/* Hero carousel: sized so the banner sits close to the first screen instead of using the photo's full natural height */
+#header-carousel .carousel-item img {
+    width: 100%;
+    height: calc(100vh - 190px);
+    min-height: 440px;
+    max-height: 660px;
+    object-fit: cover;
+}
+
+@media (max-width: 991.98px) {
+    #header-carousel .carousel-item img {
+        height: calc(100vh - 120px);
+        min-height: 380px;
+        max-height: 560px;
+    }
+}
+
+/* Company Profile anchor target: keep the heading clear of the sticky navbar */
+#company-profile {
+    scroll-margin-top: 100px;
+}
