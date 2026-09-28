@@ -354,3 +354,96 @@
 #company-profile {
     scroll-margin-top: 100px;
 }
+
+/* Service cards: identical image area + equal card heights regardless of photo ratio
+   or how long the text is */
+.service-item {
+    height: 100%;
+}
+
+/* ---- Site-wide image policy -------------------------------------------
+   Every content image sits in a fixed-shape box and fills it with
+   object-fit: cover, so no image can stretch, squash, or leave white gaps,
+   and every card of the same type is exactly the same size. */
+.media-3x2,
+.media-4x3,
+.media-16x9,
+.media-1x1 {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.media-3x2 {
+    aspect-ratio: 3 / 2;
+}
+
+.media-4x3 {
+    aspect-ratio: 4 / 3;
+}
+
+.media-16x9 {
+    aspect-ratio: 16 / 9;
+}
+
+.media-1x1 {
+    aspect-ratio: 1 / 1;
+}
+
+/* About Us photo: always fills the .about-media box edge-to-edge */
+.about-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ---- crop focus -------------------------------------------------------
+   A couple of photos are not the same shape as their card box, so these
+   rules keep the face / the full height of the building inside the frame
+   instead of centring the crop on it. */
+img[src*="testimonial.jpg"] {
+    object-position: center 15%;
+}
+
+img[src*="construction6.jpeg"] {
+    object-position: center 20%;
+}
+
+.service-item img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.service-item > .px-4 {
+    flex: 1 1 auto;
+}
+
+/* Brand wordmark colour (nav + footer only) */
+.text-brand {
+    color: #F58220 !important;
+}
+
+/* Our Mission cards: every photo fills its box edge-to-edge (no white bands).
+   The box keeps a 3:2 photo shape; a photo that is slightly wider than 3:2 is
+   trimmed a few percent off the sides instead of showing a white strip. */
+.mission-img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+}
+
+/* About Us media: a photo-shaped frame that scales with the screen, so the landscape
+   photo is never squeezed into a tall narrow box (which zoomed/cropped it badly).
+   The photo itself fills the frame with object-fit: cover, so it cannot distort. */
+.about-media {
+    width: 100%;
+    min-height: 320px;
+}
+
+@supports (aspect-ratio: 1 / 1) {
+    .about-media {
+        aspect-ratio: 5 / 3;
+        min-height: 0;
+    }
+}
