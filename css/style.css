@@ -447,3 +447,221 @@ img[src*="construction6.jpeg"] {
         min-height: 0;
     }
 }
+
+/* ====================================================================== *
+   Mobile Responsive Refinements
+   ----------------------------------------------------------------------
+   Every rule below is scoped to small screens only, so the desktop
+   layout (>= 992px) is left exactly as it was. Because all pages reuse the
+   same section wrappers, cards and portfolio markup, these rules apply
+   automatically to every page and every section.
+   ====================================================================== */
+
+/* ---------- Small tablets & below (<= 991.98px) ----------------------- */
+@media (max-width: 991.98px) {
+    /* The About photo frame is inset from the left on desktop; on narrow
+       screens that inset plus the photo's own offset pushed it off the
+       right edge. Neutralise both so the frame stays inside the viewport. */
+    .about-media.ms-5 {
+        margin-left: 0 !important;
+    }
+
+    .about-media img {
+        margin-left: 0 !important;
+        margin-top: 0 !important;
+    }
+
+    /* Tag / button groups that use Bootstrap's negative-margin helper
+       (.m-n1) poke ~4px past the screen edge on tablets and phones; drop
+       the negative margin so the row always stays inside the viewport. */
+    .d-flex.flex-wrap.m-n1 {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+}
+
+/* ---------- Mid-size phones: keep the hero headline from overflowing ---- */
+@media (min-width: 577px) and (max-width: 767.98px) {
+    .carousel-caption h1 {
+        font-size: 42px;
+    }
+}
+
+/* ---------- Phones (<= 767.98px) -------------------------------------- */
+@media (max-width: 767.98px) {
+    /* Each section is a `.container-fluid.px-5` (3rem padding per side).
+       Trim that so content and images actually use the width of the screen
+       and stay centred instead of being squeezed into a narrow column. */
+    .container-fluid.px-5 {
+        padding-right: 1rem !important;
+        padding-left: 1rem !important;
+    }
+
+    /* Shorter section rhythm so pages do not feel like endless scrolling. */
+    .py-6 {
+        padding-top: 45px;
+        padding-bottom: 45px;
+    }
+
+    .pt-6 {
+        padding-top: 45px;
+    }
+
+    .pb-6 {
+        padding-bottom: 45px;
+    }
+
+    /* Lighter padding inside cards (Why Choose Us, Technology, Featured
+       Projects, Company Profile, Contact info, service text ...). */
+    .p-5 {
+        padding: 1.25rem !important;
+    }
+
+    .p-4 {
+        padding: 1rem !important;
+    }
+
+    .px-4 {
+        padding-right: 1rem !important;
+        padding-left: 1rem !important;
+    }
+
+    .service-item > .px-4 {
+        padding-bottom: 1.25rem !important;
+    }
+
+    /* Smaller grid gutters keep photos/cards wide instead of squeezed. */
+    .row.g-5 {
+        --bs-gutter-x: 1.25rem;
+        --bs-gutter-y: 1.25rem;
+    }
+
+    .row.gx-5 {
+        --bs-gutter-x: 1.25rem;
+    }
+
+    .row.g-4 {
+        --bs-gutter-x: 1rem;
+        --bs-gutter-y: 1rem;
+    }
+
+    /* Inner-page banner (About / Service / Projects / Contact ...): shorter,
+       centred and with a smaller title that can no longer overflow. */
+    .page-header {
+        height: 200px;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        text-align: center;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .page-header h6 {
+        font-size: .85rem;
+    }
+
+    /* Service cards: keep the round icon badge centred and scale it down. */
+    .service-item .service-icon {
+        margin-top: -40px;
+        width: 80px;
+        height: 80px;
+    }
+
+    .service-item .service-icon i {
+        font-size: 2.25rem;
+    }
+
+    .service-item:hover .service-icon i {
+        font-size: 2.5rem;
+    }
+
+    /* ----- Projects / portfolio ----------------------------------------
+       On phones the caption used to float on top of the photo (text over
+       image) while the photo got squeezed. Stack the caption BELOW the
+       image, centre its text, and hide the hover-only "+" button (touch
+       devices have no hover) so nothing ever overlaps. */
+    .portfolio-item {
+        margin-bottom: 0;
+    }
+
+    .portfolio-box {
+        overflow: hidden;
+    }
+
+    .portfolio-title {
+        position: static;
+        display: block;
+        min-height: 0;
+        padding: 15px 18px;
+        right: auto;
+        left: auto;
+        bottom: auto;
+        text-align: center;
+    }
+
+    .portfolio-title .h4 {
+        font-size: 1.1rem;
+        margin-bottom: .25rem;
+    }
+
+    .portfolio-btn {
+        display: none;
+    }
+
+    /* The contact map should not be a 600px wall on a phone. */
+    .col-lg-6[style*="600px"] {
+        height: 320px !important;
+    }
+}
+
+
+/* ---------- Very small phones (<= 575.98px) --------------------------- */
+@media (max-width: 575.98px) {
+    /* Even tighter vertical rhythm on the smallest screens. */
+    .py-6 {
+        padding-top: 35px;
+        padding-bottom: 35px;
+    }
+
+    .pt-6 {
+        padding-top: 35px;
+    }
+
+    .pb-6 {
+        padding-bottom: 35px;
+    }
+
+    /* Long uppercase section headings: keep them readable and centred. */
+    .display-5 {
+        font-size: 1.75rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.75rem;
+    }
+
+    /* Core Values cards: stack the icon above its text and centre both. */
+    .row.g-4 > [class*="col-"] > .d-flex.bg-white {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .row.g-4 > [class*="col-"] > .d-flex.bg-white > i {
+        margin-right: 0 !important;
+        margin-bottom: .75rem;
+    }
+
+    /* Footer: centre the brand lockup, its text and the social icon row. */
+    .footer .row > .col-lg-6:first-child {
+        text-align: center;
+    }
+
+    .footer .row > .col-lg-6:first-child .navbar-brand,
+    .footer .row > .col-lg-6:first-child .d-flex {
+        justify-content: center !important;
+    }
+}
+
